@@ -9,6 +9,7 @@ Trem::Trem(int id, int x, int y)
     this->id = id;
     this->x = x;
     this->y = y;
+
     velocidade = 250;
     enable = true;
 }
@@ -42,20 +43,10 @@ void Trem::run()
             {
                 emit updateGUI(id,x,y);
                 if (y == 120 && x <290)
-                    semaforo[0].lock();
-                    semaforo[1].lock();
-                    semaforo[2].lock();
                     x+=10;
                 else if (x == 290 && y < 220)
-                    semaforo[3].lock();
-                    semaforo[4].lock();
-                    semaforo[5].lock();
                     y+=10;
                 else if (x > 150 && y == 220)
-                    semaforo[0].lock();
-                    semaforo[2].lock();
-                    semaforo[4].lock();
-                    semaforo[5].lock();
                     x-=10;
                 else
                     y-=10;
