@@ -64,7 +64,6 @@ int Semaforo::getSemaforoId(){
   return semaforoId;
 }
  
- 
 /*
   Retornar o atributo privado referente ao contador do semaforo
 */

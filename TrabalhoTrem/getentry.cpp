@@ -24,7 +24,7 @@ void getEntry::run(){
     int id_final;
     int id;
     int velocidade;
-    bool enable; //enable
+    bool enable; //stop
     int bytesLidos;
     struct sockaddr_in enderecoCliente;
 
