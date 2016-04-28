@@ -20,8 +20,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     id = 1;
-    velocidade = 40;
-    stop = false;
+    velocidade = 250;
+    enable = false;
 
     ui->dial->setRange(0, 4095);
 
@@ -82,11 +82,11 @@ void MainWindow::send(){
     printf("Cliente: enviei a velocidade: %i para o servidor\n", velocidade);
 
     //Enviando um A para o servidor
-    if ( ::send (socketId, &stop, 1, 0) == -1 ){
+    if ( ::send (socketId, &enable, 1, 0) == -1 ){
         perror ("Error send\n");
         exit(1);
     }
-    printf("Cliente: enviei o bool: %i para o servidor\n", stop);
+    printf("Cliente: enviei o bool: %i para o servidor\n", enable);
 
     //Fechar o socket cliente
     ::close (socketId);
@@ -96,7 +96,7 @@ void MainWindow::on_pushButton_4_pressed()
 {
     //Send
     send();
-    stop = false;
+    enable = false;
 }
 
 void MainWindow::on_pushButton_2_pressed()
@@ -111,11 +111,11 @@ void MainWindow::on_dial_valueChanged(int value)
 
     value /= 37;
     //value /= 7;
-    velocidade = (value+40);
+    velocidade = (value+250);
     ui->lcdNumber_2->display(10000/velocidade);
 }
 
 void MainWindow::on_pushButton_pressed()
 {
-    stop = !stop;
+    enable = !enable;
 }

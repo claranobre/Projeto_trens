@@ -16,7 +16,7 @@ public:
     ~MainWindow();
     int id;
     int velocidade;
-    bool stop;
+    bool enable; //stop
 
     void send();
 

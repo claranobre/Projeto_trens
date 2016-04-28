@@ -93,26 +93,32 @@ void MainWindow::updateTrem(int id, int velocidade, bool enable){
     }
 }
 
-void MainWindow::updateInterface(int id, int x, int y)
+void MainWindow::updateInterface(int id, int x, int y, int velocidade)
 {
     switch(id){
         case 1:
             ui->labelTrem01->setGeometry(x,y,20,20);
+            ui->lcdNumber->display(10000/velocidade);
             break;
         case 2:
-            ui->labelTrem02->setGeometry(x,y,20,20)
+            ui->labelTrem02->setGeometry(x,y,20,20);
+            ui->lcdNumber_2->display(10000/velocidade);
             break;
         case 3:
-            ui->labelTrem03->setGeometry(x,y,20,20)
+            ui->labelTrem03->setGeometry(x,y,20,20);
+            ui->lcdNumber_3->display(10000/velocidade);
             break;
         case 4:
-            ui->labelTrem04->setGeometry(x,y,20,20)
+            ui->labelTrem04->setGeometry(x,y,20,20);
+            ui->lcdNumber_4->display(10000/velocidade);
             break;
         case 5:
-            ui->labelTrem05->setGeometry(x,y,20,20)
+            ui->labelTrem05->setGeometry(x,y,20,20);
+            ui->lcdNumber_5->display(10000/velocidade);
             break;
         case 6:
-            ui->labelTrem06->setGeometry(x,y,20,20)
+            ui->labelTrem06->setGeometry(x,y,20,20);
+            ui->lcdNumber_6->display(10000/velocidade);
             break;
         default:
             break;

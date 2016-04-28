@@ -1,14 +1,11 @@
 #ifndef TREM_H
 #define TREM_H
 
-#include <QObject>
 #include <QThread>
-#include <thread>
-#include <chrono>
 
 using namespace std;
 
-class Trem : public QObject
+class Trem : public QThread
 {
     Q_OBJECT
 public:
