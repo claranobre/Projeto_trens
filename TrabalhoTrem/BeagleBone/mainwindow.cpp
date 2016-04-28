@@ -19,9 +19,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    id = 1;
-    velocidade = 250;
-    enable = false;
+    id = 0;
+    velocidade = 200;
+    enable = true;
 
     ui->dial->setRange(0, 4095);
 
@@ -108,10 +108,9 @@ void MainWindow::on_pushButton_2_pressed()
 
 void MainWindow::on_dial_valueChanged(int value)
 {
-
     value /= 37;
     //value /= 7;
-    velocidade = (value+250);
+    velocidade = (value+200);
     ui->lcdNumber_2->display(10000/velocidade);
 }
 
