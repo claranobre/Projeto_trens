@@ -2,11 +2,15 @@
 #include "ui_mainwindow.h"
 
 
-//----------------------Globals----------------------------------------------
+/*
+ * Global
+*/
 
 bool ligado = false;
 
-//----------------------Iniciador do Maiwindow-------------------------------
+/*
+ * Mainwindow
+*/
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -29,8 +33,6 @@ MainWindow::MainWindow(QWidget *parent) :
     sem.push_back(s6);
     s7 = new Semaforo(1237,1,IPC_CREAT|0600);
     sem.push_back(s7);
-
-
 
     trem1 = new Trem(1,50,20,40,20,180,120, sem);
     listaTrem.append(trem1);
@@ -61,8 +63,6 @@ MainWindow::MainWindow(QWidget *parent) :
     listaTrem.append(trem6);
     connect(trem6,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     trem6->start();
-
-
 }
 
 MainWindow::~MainWindow()
@@ -81,7 +81,6 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::updateComand(){
-    qDebug() << "Oi";
     if(ligado){
         if(conect->comando.id == 0){
             this->setVelocidadeGeral(conect->comando.velocidade);
@@ -120,7 +119,9 @@ void MainWindow::updateInterface(int id, int x, int y)
     }
 
 }
-//-----------------------SET Velociodades-------------------------------------
+/*
+ * Setando Velociodade
+*/
 
 void MainWindow::setVelocidadeGeral (int velocidade){
     for (int i = 0; i <listaTrem.size(); i++){
@@ -132,7 +133,10 @@ void MainWindow::setVelocidade (int id, int velocidade){
         listaTrem.at(id -1)->setVelocidade(velocidade);
 }
 
-//-----------------------ENABLE/DESABLE trens--------------------------------
+/*
+ * ENABLE
+ * DISABLE
+*/
 
 void MainWindow::setEnableGeral (bool enable){
     for (int i = 0; i <listaTrem.size(); i++){
@@ -144,7 +148,9 @@ void MainWindow::setEnable (int id, bool enable){
     listaTrem.at(id -1)->setEnable(enable);
 }
 
-//-----------------------Clicked Buttons-------------------------------------
+/*
+ * Buttons
+*/
 
 void MainWindow::on_velButton_clicked()
 {
@@ -198,5 +204,3 @@ void MainWindow::on_serverOn_clicked()
         cout << "Servidor ligado";
     }
 }
-
-

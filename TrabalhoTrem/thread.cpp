@@ -1,15 +1,20 @@
 #include "thread.h"
 
-//Construtor
+/*
+ * Construtor
+*/
+
 Thread::Thread(){}
 
-//Destrutor
+/*
+ * Destrutor
+*/
+
 Thread::~Thread(){}
 
 /*
-  Responsavel por chamar a funcao run.
-  Apos finalizar o metodo run, a thread
-  devera chamar o destrutor
+ * Responsavel por chamar a funcao run.
+ * Apos finalizar o metodo run, a thread devera chamar o destrutor
 */
 
 void* Thread::funcaoHelper (void *param)
@@ -19,9 +24,8 @@ void* Thread::funcaoHelper (void *param)
 }
 
 /*
-  Inicia a thread. Devera ser a primeira funcao
-  executada apos o construtor.
-  Retorna o codigo de erro da criacao da thread
+ * Inicia a thread. Devera ser a primeira funcao executada apos o construtor.
+ * Retorna o codigo de erro da criacao da thread
 */
 
 int Thread::start()
@@ -30,9 +34,8 @@ int Thread::start()
 }
 
 /*
-  Funcao que espera pela finalizacao da thread.
-  Pode ser chamada para sincronizacao dentro de
-  algum procedimento
+ * Funcao que espera pela finalizacao da thread.
+ * Pode ser chamada para sincronizacao dentro de algum procedimento
 */
 
 int Thread::wait()
@@ -41,7 +44,7 @@ int Thread::wait()
 }
 
 /*
- Retorna o objeto thread da classe
+ * Retorna o objeto thread da classe
 */
 pthread_t
 
