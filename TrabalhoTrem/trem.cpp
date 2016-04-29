@@ -4,32 +4,32 @@
 
 QMutex semaforo[8];
 
-Trem::Trem(int id, int x, int y)
+/*
+ * Método Trem
+*/
+
+Trem::Trem(int id, int x, int y, int ix, int iy, int fx, int fy, vector<Semaforo*> semaforos )
 {
     this->id = id;
     this->x = x;
     this->y = y;
-
-    velocidade = 250;
+    this->ix = ix;
+    this->iy = iy;
+    this->fx = fx;
+    this->fy = fy;
+    this->semaforos = semaforos;
+    velocidade = 200; //milisegundos
     enable = true;
 }
 
 Trem::~Trem()
 {
-    thread.join();
+    threadTrem.join();
 }
 
-void Trem::setVelocidade(int velocidade)
-{
-    this->velocidade = velocidade;
-}
-
-void Trem::setEnable(bool enable)
-{
-    this->enable = enable;
-}
-
-//Criação da Thread "run"
+/*
+ * Criação da Thread "run"
+*/
 void Trem::start()
 {
     switch(id){
@@ -54,12 +54,15 @@ void Trem::start()
         }
     }
     //threadTrem = std::thread(&Trem::run,this);
-}
 
-//Movimentação dos trens
+/*
+ * Movimentação dos trens
+*/
 void Trem::move(){
 
-    //Sentido horario
+    /*
+     * Sentido horario
+     */
     if(id==1 || id==3 || id==5 || id==6){
         if (enable)
         {
@@ -75,7 +78,9 @@ void Trem::move(){
         }
     }
 
-    //Sentido anti-horario
+    /*
+     * Sentido anti-horario
+     */
     else{
         if(id==2 || id==4){
             if (enable)
@@ -94,11 +99,15 @@ void Trem::move(){
     }
 }
 
-//Trens_ação
+/*
+ * Trens_ação
+ */
 void Trem::run1(){
 
     while(true){
-        //Sentido horario
+        /*
+         * Sentido horario
+         */
         move();
 
         //Se chegar na primeira regiao critica
@@ -128,7 +137,9 @@ void Trem::run1(){
 void Trem::run2(){
 
     while(true){
-        //Sentido anti-horário
+        /*
+         * Sentido anti-horário
+         */
         move();
 
         //Chega na primeira região critia
@@ -166,7 +177,9 @@ void Trem::run2(){
 void Trem::run3(){
 
     while(true){
-        //Sentido horário
+        /*
+         * Sentido horário
+         */
         move();
 
         //Chegando na primeira regiao critica
@@ -196,7 +209,9 @@ void Trem::run3(){
 void Trem::run4(){
 
     while(true){
-        //Sentido anti-horário
+        /*
+         * Sentido anti-horário
+         */
         move();
 
         //trajeto superior
@@ -255,7 +270,9 @@ void Trem::run4(){
 
 void Trem::run5(){
     while(true){
-        //Sentido horario
+        /*
+         * Sentido horario
+         */
         move();
 
         //Chegou na primeira zona critica
@@ -284,7 +301,9 @@ void Trem::run5(){
 
 void Trem::run6(){
     while(true){
-        //Sentido horario
+        /*
+         * Sentido horario
+         */
         move();
 
         //Chegou na primeira zona critica
@@ -310,12 +329,12 @@ void Trem::run6(){
     }
 }
 
-void Trem::parar_retomar()
+void Trem::setVelocidade(int velocidade)
 {
-    enable = !enable;
+    this->velocidade = velocidade;
 }
 
-void Trem::mudar_velocidade(int velocidade)
+void Trem::setEnable(bool enable)
 {
-    velocidade = velocidade;
+    this->enable = enable;
 }

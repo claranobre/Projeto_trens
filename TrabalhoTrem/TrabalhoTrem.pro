@@ -15,7 +15,12 @@ SOURCES += main.cpp\
     mainwindow.cpp \
     trem.cpp \
     socket.cpp \
-    semaforo.cpp
+    semaforo.cpp \
+    ../../../../../Dev/BlackLib/v3_0/BlackGPIO/BlackGPIO.cpp \
+    BeagleBone/beaglebone.cpp \
+    BeagleBone/main.cpp \
+    BeagleBone/mainwindow.cpp \
+    ../../../../../Dev/BlackLib/v3_0/BlackCore.cpp
 
 HEADERS  += mainwindow.h \
     trem.h \
@@ -24,6 +29,12 @@ HEADERS  += mainwindow.h \
     trem.h \
     semaforo.h \
     clientecomando.h \
+    ../../../../../Dev/BlackLib/v3_0/BlackGPIO/BlackGPIO.h \
+    BeagleBone/mainwindow.h \
+    ../../../../../Dev/BlackLib/v3_0/BlackLib.h \
+    ../../../../../Dev/BlackLib/v3_0/BlackErr.h \
+    ../../../../../Dev/BlackLib/v3_0/BlackDef.h \
+    ../../../../../Dev/BlackLib/v3_0/BlackCore.h
 
 FORMS    += mainwindow.ui
 
