@@ -60,11 +60,11 @@ public:
     QLabel *label_3;
     QWidget *formLayoutWidget_2;
     QFormLayout *formLayout_2;
+    QLabel *label_5;
+    QLineEdit *portText;
     QPushButton *serverOn;
     QLabel *label_4;
     QLineEdit *ipText;
-    QLabel *label_5;
-    QLineEdit *portText;
     QLabel *label_6;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -211,6 +211,16 @@ public:
         formLayout_2->setContentsMargins(11, 11, 11, 11);
         formLayout_2->setObjectName(QStringLiteral("formLayout_2"));
         formLayout_2->setContentsMargins(0, 0, 0, 0);
+        label_5 = new QLabel(formLayoutWidget_2);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        formLayout_2->setWidget(1, QFormLayout::LabelRole, label_5);
+
+        portText = new QLineEdit(formLayoutWidget_2);
+        portText->setObjectName(QStringLiteral("portText"));
+
+        formLayout_2->setWidget(1, QFormLayout::FieldRole, portText);
+
         serverOn = new QPushButton(formLayoutWidget_2);
         serverOn->setObjectName(QStringLiteral("serverOn"));
 
@@ -225,16 +235,6 @@ public:
         ipText->setObjectName(QStringLiteral("ipText"));
 
         formLayout_2->setWidget(0, QFormLayout::FieldRole, ipText);
-
-        label_5 = new QLabel(formLayoutWidget_2);
-        label_5->setObjectName(QStringLiteral("label_5"));
-
-        formLayout_2->setWidget(1, QFormLayout::LabelRole, label_5);
-
-        portText = new QLineEdit(formLayoutWidget_2);
-        portText->setObjectName(QStringLiteral("portText"));
-
-        formLayout_2->setWidget(1, QFormLayout::FieldRole, portText);
 
         label_6 = new QLabel(frame_2);
         label_6->setObjectName(QStringLiteral("label_6"));
@@ -279,11 +279,11 @@ public:
         enableButton->setText(QApplication::translate("MainWindow", "On", 0));
         disableButton->setText(QApplication::translate("MainWindow", "Off", 0));
         label_3->setText(QApplication::translate("MainWindow", "   Train Controller", 0));
+        label_5->setText(QApplication::translate("MainWindow", "Port:", 0));
+        portText->setText(QApplication::translate("MainWindow", "4325", 0));
         serverOn->setText(QApplication::translate("MainWindow", "Ligar", 0));
         label_4->setText(QApplication::translate("MainWindow", "IP:", 0));
         ipText->setText(QApplication::translate("MainWindow", "127.0.0.1", 0));
-        label_5->setText(QApplication::translate("MainWindow", "Port:", 0));
-        portText->setText(QApplication::translate("MainWindow", "4325", 0));
         label_6->setText(QApplication::translate("MainWindow", "Remote Control", 0));
     } // retranslateUi
 

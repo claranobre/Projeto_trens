@@ -1,10 +1,10 @@
-#include <cstdio>
+#include <cstdio>       //printf
 #include <cstring>      //memset
-#include <cstdlib>
+#include <cstdlib>      //exit
 #include <netinet/in.h> //htons
 #include <arpa/inet.h>  //inet_addr
 #include <sys/socket.h> //socket
-#include <unistd.h>
+#include <unistd.h>     //close
 #include <iostream>
 
 struct Comando {
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     int socketId;
 
     Comando comando;
-    comando.id = 0; // ID padrão: 0 = todos.
+    comando.id = 0;
     comando.velocidade = 200; //Velocidade padrão
     comando.enable = true; //Enabled padrão
 
@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
     endereco.sin_addr.s_addr = inet_addr("127.0.0.1");
 
     while(controle){
+        /*
         std::cout << "----------------\n";
         std::cout << "Comandos atuais: ID: " << comando.id << ".\n";
         std::cout << "Velocidade: " << comando.velocidade << ".\n";
@@ -50,6 +51,7 @@ int main(int argc, char *argv[])
         std::cout << "s: Enviar comando.\n";
         std::cout << "x: Sair do programa de controle.\n";
         std::cin >> com;
+        */
         switch(com){
             case 'I':
             case 'i':
